@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bénin auto-ecole - École de Conduite Moderne</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lato:wght@100;300;400;700;900&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+     <style>
+        :root {
+    --primary: #D92332;
+    /* Rouge cerise */
+    --primary-light: #F17A82;
+    /* Rouge pastel */
+    --light: #FFFFFF;
+    /* Blanc neige */
+    --dark: #111111;
+    /* Noir carbone */
+    --gray: #E4E4E4;
+    /* Gris perle */
+    --deep-red: #B50011;
+    --orange-red: #FF4F4F;
+    --off-white: #FAFAFA;
+    --dark-gray: #2B2B2B;
+    --silver-gray: #C8C8C8;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    background-color: var(--light);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, var(--deep-red), var(--orange-red));
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(181, 0, 17, 0.25);
+}
+
+.btn-gradient:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange-red), var(--deep-red));
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.btn-gradient:hover:before {
+    opacity: 1;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(181, 0, 17, 0.35);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--light);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: none;
+    z-index: 1;
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--dark);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.btn-primary:hover:before {
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(217, 35, 50, 0.3);
+}
+
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.bg-dark {
+    background-color: var(--dark) !important;
+    color: var(--light);
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+
+/* Floating */
+/* .floating {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-content {
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+
+} */
+
+.floating-content {
+    position: fixed;
+    /* Le bouton reste fixe à l'écran */
+    bottom: 30%;
+    /* Distance du bas */
+    right: 20px;
+    /* Distance de la droite */
+    z-index: 9999;
+    /* Pour qu'il passe au-dessus des autres éléments */
+}
+
+.floating-content .floating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Rond */
+    background: var(--dark-gray) !important;
+    /* Dégradé exemple */
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-content .floating:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Header */
+.navbar {
+    height: 80px;
+    padding: 10px 0;
+    transition: var(--transition);
+    background: #fff; /* Blanc opaque */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .dropdown-menu {
+    background: #fff; /* Blanc pour le menu aussi */
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 8px;
+    z-index: 100;
+}
+
+
+.navbar .dropdown-menu .dropdown-item {
+    color: var(--dark);
+    font-weight: 500;
+    padding: 8px 20px;
+    transition: var(--transition);
+    border-radius: 5px;
+    margin: 0 5px;
+    width: calc(100% - 10px);
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    /* background: rgba(217, 35, 50, 0.2); */
+    background: rgba(185, 170, 171, 0.2);
+    transform: translateX(5px);
+    color: var(--light);
+}
+
+.navbar .dropdown-menu .dropdown-item:focus {
+    /* background: rgba(217, 35, 50, 0.2); */
+    background: rgba(185, 170, 171, 0.2);
+    transform: translateX(5px);
+    color: var(--light);
+}
+
+.navbar.scrolled {
+    /* background: var(--light); */
+    background:#fff;
+    color: var(--dark);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    transition: background ease 1s;
+}
+
+.navbar.scrolled .nav-link {
+    color: var(--dark);
+}
+
+.navbar-brand img {
+    height: 60px;
+    transition: var(--transition);
+}
+
+.nav-item {
+    margin: 0 5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0 15px;
+    position: relative;
+    color: var(--dark); /* Texte foncé par défaut */
+    transition: var(--transition);
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--dark);
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+/* Dropdown hover effect for large screens */
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        right: 0;
+        left: auto;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 991.98px) {
+    .navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .navbar-collapse {
+        background: linear-gradient(45deg, rgba(204, 203, 203, 0.95) 0%, rgba(217, 35, 50, 0.85) 100%);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-item {
+        margin: 8px 0;
+    }
+
+    .nav-link {
+        padding: 10px 0;
+        color: var(--dark);
+        font-weight: 600;
+    }
+
+    .dropdown-menu {
+        background: rgba(255, 255, 255, 0.2);
+        margin: 5px 0 5px 15px;
+        border-left: 2px solid var(--primary);
+    }
+
+    .navbar .dropdown-menu .dropdown-item {
+        padding: 8px 15px;
+    }
+
+    .navbar-toggler {
+        border: none;
+        box-shadow: none !important;
+    }
+}
+
+
+
+/* Header */
+/* .navbar {
+    height: 60px;
+    padding: 10px 0;
+    transition: var(--transition);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(5px);
+    background: linear-gradient(45deg, rgba(204, 203, 203, 0.8) 0%, rgba(217, 35, 50, 0.5) 100%);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .dropdown-menu {
+background: linear-gradient(45deg, rgba(204, 203, 203, 0.8) 0%, rgba(217, 35, 50, 0.5) 100%);
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .dropdown-menu li {
+    padding: 12px 16px;
+    color: var(--dark);
+    transition: var(--transition);
+}
+
+.navbar .dropdown-menu li:hover {
+    background: rgba(217, 35, 50, 0.1);
+}
+
+.navbar .container .dropdown-menu .dropdown-item {
+
+    color: var(--light);
+}
+
+.navbar .container .dropdown-menu .dropdown-item:hover {
+
+    color: var(--light);
+    background: none;
+}
+
+.navbar.scrolled {
+    background: var(--light);
+    color: var(--dark);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    transition: background ease 1s;
+}
+
+.navbar.scrolled .nav-link {
+    color: var(--dark);
+}
+
+.navbar-brand img {
+    height: 60px;
+    transition: var(--transition);
+}
+
+.nav-item {
+    margin: 0 5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0 15px;
+    position: relative;
+    color: var(--light);
+    transition: var(--transition);
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--light);
+    width: 100%;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+
+    .navbar .container .collapse .navbar-collapse {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        z-index: 1;
+    }
+
+    .navbar .container .nav-item li {
+        width: 100%;
+        padding: 12px 16px;
+        color: var(--dark);
+        transition: var(--transition);
+    }
+
+    .navbar .container .nav-item li:hover {
+        background: rgba(217, 35, 50, 0.1);
+    }
+
+    .navbar .container .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        z-index: 1;
+    }
+
+    .navbar .container .dropdown-menu li {
+        width: 100%;
+        padding: 12px 16px;
+        color: var(--dark);
+        transition: var(--transition);
+    }
+
+    .navbar .container .dropdown-menu li:hover {
+        background: rgba(217, 35, 50, 0.1);
+    }
+
+} */
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--light);
+    padding-top: 80px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(17, 17, 17, 0.8) 0%, rgba(217, 35, 50, 0.5) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.hero-title.animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 0.8s ease 0.2s, opacity 0.8s ease 0.2s;
+}
+
+.hero-subtitle.animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: var(--light);
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    transition: var(--transition);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: var(--primary);
+    transition: var(--transition);
+    z-index: -1;
+    opacity: 0.1;
+}
+
+.feature-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card:hover:before {
+    height: 100%;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 28px;
+    color: var(--light);
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+    background: var(--dark);
+    transform: scale(1.1);
+}
+
+/* Courses Section */
+.course-card {
+    background: var(--light);
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    transition: var(--transition);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.course-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    transition: var(--transition);
+}
+
+.course-card:hover .course-img {
+    transform: scale(1.05);
+}
+
+.course-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: var(--light);
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Testimonials */
+.testimonial-card {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    margin: 15px;
+    height: calc(100% - 30px);
+    border: none;
+    transition: var(--transition);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.stars {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.client-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid var(--primary);
+}
+
+/* Stats */
+.stat-card {
+    text-align: center;
+    padding: 40px 20px;
+    /* border: var(--dark-gray) 1px solid; */
+    border-radius: 15px;
+    background: var(--light);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stat-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.delay-2 {
+    transition-delay: 0.4s;
+}
+
+.delay-3 {
+    transition-delay: 0.6s;
+}
+
+/* Section Titles */
+.section-title {
+    position: relative;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* CTA Section */
+/* .cta-section {
+    color: #111111;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+}
+
+.cta-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 10% 20%, rgba(241, 122, 130, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(241, 122, 130, 0.1) 0%, transparent 20%);
+}
+
+.cta-content {
+    color: #111111;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+} */
+
+.cta-section {
+    position: relative;
+    background: url("./1_1.jpg") no-repeat center center/cover;
+    /* ton image */
+    padding: 150px 0;
+    text-align: center;
+    overflow: hidden;
+    min-height: 300px;
+    /* pour laisser un espace suffisant */
+}
+
+.cta-overlay {
+    position: absolute;
+    inset: 0;
+    /* top:0, right:0, bottom:0, left:0 */
+    background: rgba(0, 0, 0, 0.582);
+    /* filtre coloré, change la couleur */
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    /* au-dessus de l’overlay */
+    color: var(--dark);
+}
+
+
+
+.cta-btn {
+    text-decoration: none;
+    position: absolute;
+    bottom: 25px;
+    /* fixé à 20px du bas */
+    left: 40%;
+    /* centré horizontalement */
+    z-index: 2;
+    background: linear-gradient(90deg, var(--orange-red), var(--deep-red));
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 50px;
+    overflow: hidden;
+    z-index: 1;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(181, 0, 17, 0.25);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(181, 0, 17, 0.35);
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+}
+
+
+/* Footer */
+.footer {
+    background: var(--dark);
+    color: var(--light);
+    padding: 80px 0 30px;
+    position: relative;
+}
+
+.footer:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary);
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: var(--light);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+}
+
+.footer-links a {
+    display: block;
+    color: #aaa;
+    margin-bottom: 12px;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    margin-right: 10px;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+    background: var(--primary);
+    color: var(--light);
+    transform: translateY(-5px);
+}
+
+   
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .copyright a {
+            color: var(--orange-red);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .copyright a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+/* Responsive */
+@media (max-width: 992px) {
+
+    .navbar .container .dropdown-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-section {
+        height: auto;
+        min-height: 100vh;
+    }
+}
+     </style>
+</head>
+
+<body>
+    <style>
+           /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: var(--off-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(181, 0, 17, 0.7), rgba(255, 79, 79, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .instagram-icon {
+            font-size: 2.5rem;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .instagram-icon {
+            transform: scale(1.2);
+        }
+    </style>
+    
+
+    
+
+    <!-- Navigation Moderne -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./Home.html">
+                <img src="./BAE_LOGO 0_1-01.png" alt="Logo BAE">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Home.html">Accueil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link about-us-link" href="./About Us.html" role="button" data-bs-toggle="dropdown"
+                            id="aboutDropdown">À propos<i class="bi bi-chevron-down mobile-dropdown-icon"></i> </a>
+
+                        <ul class="dropdown-menu navbar-light navbar-expand-lg">
+                            <li><a class="dropdown-item" href="./About Us.html">À propos</a></li>
+                            <li><a class="dropdown-item" href="./Instructors.html">Instructeurs</a></li>
+                            <li><a class="dropdown-item" href="./Pricing.html">Tarifs</a></li>
+                            <li><a class="dropdown-item" href="./FAQ.html">FAQ</a></li>
+                            <li><a class="dropdown-item" href="./Testimonials.html">Témoignages</a></li>
+                            
+                        </ul>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Courses.html">Cours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Services.html">Services</a>
+                    </li>
+                </ul>
+                <!-- <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="#" class="btn btn-gradient">Free Consultation</a>
+                </div> -->
+                <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="./register.html" class="btn btn-gradient">S'inscrire</a>
+                </div>
+                 <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="./login.html" class="btn btn-gradient">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="ms-lg-3 mt-3 mt-lg-0 floating-content">
+        <a href="./Contact Us.html" class="btn-gradient floating"><i class="fas fa-phone"></i></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <video autoplay muted loop class="hero-video">
+            <source
+                src="https://cdn.prod.website-files.com/686b8973aa060547b4f5d4d2%2F6874cf61eb2e6ba6a8e3fdf8_7031256_Aerial_Red_1920x1080-transcode.mp4"
+                type="video/mp4">
+        </video>
+
+        
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title text-white" >Maîtrisez la route avec confiance</h1>
+                <p class="hero-subtitle">Notre école de conduite vous offre une formation complète avec des instructeurs
+                    experts pour vous guider à chaque étape de votre apprentissage.</p>
+                <a href="./Courses.html" class="btn btn-primary btn-lg">Démarrer maintenant</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Pourquoi choisir Bénin Auto-ecole</h2>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4 class="mb-3">Instructeurs Experts</h4>
+                        <p>Nos instructeurs certifiés possèdent plus de 10 ans d'expérience dans la formation de
+                            conducteurs.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in delay-1">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h4 class="mb-3">Véhicules Modernes</h4>
+                        <p>Apprenez à conduire avec notre flotte de véhicules récents, équipés des dernières
+                            technologies.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in delay-2">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="mb-3">Taux de Réussite</h4>
+                        <p>98% de nos étudiants réussissent leur examen du premier coup grâce à notre méthode éprouvée.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in delay-3">
+                    <div class="feature-card text-center p-4">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4 class="mb-3">Flexibilité</h4>
+                        <p>Choisissez vos horaires de cours selon vos disponibilités, même le soir et le week-end.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="section bg-gray">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Nos Programmes de Formation</h2>
+                    <p class="lead">Choisissez la formation qui correspond à vos besoins</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 fade-in">
+                    <div class="course-card">
+                        <div class="position-relative">
+                            <img src="./b5682b48-d2af-4df0-b22f-aabd2de76646.jpg"
+                                alt="Conduite Débutant" class="course-img">
+                            <div class="course-badge">Débutant</div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-3">Formation Initiale</h4>
+                            <p class="mb-4">Apprenez les bases de la conduite avec notre programme complet pour
+                                débutants.</p>
+                            <a href="./Courses-Details.html" class="btn btn-gradient">Détails du cours</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 fade-in delay-1">
+                    <div class="course-card">
+                        <div class="position-relative">
+                            <img src="./You should always try before you buy, right_ Well….jpg"
+                                alt="Conduite Avancée" class="course-img">
+                            <div class="course-badge">Avancé</div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-3">Conduite Préventive</h4>
+                            <p class="mb-4">Perfectionnez vos compétences avec notre cours avancé de conduite défensive.
+                            </p>
+                            <a href="./Courses-Details.html" class="btn btn-gradient">Détails du cours</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 fade-in delay-2">
+                    <div class="course-card">
+                        <div class="position-relative">
+                            <img src="./Belle jeune femme africaine au volant d'une voiture _ Photo Premium.jpg"
+                                alt="Conduite Expert" class="course-img">
+                            <div class="course-badge">Expert</div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="mb-3">Perfectionnement Expert</h4>
+                            <p class="mb-4">Maîtrisez toutes les situations routières avec notre programme expert.</p>
+                            <a href="./Courses-Details.html" class="btn btn-gradient">Détails du cours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 fade-in">
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="98">0</div>
+                        <h5>Taux de réussite</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in delay-1">
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="2500">0</div>
+                        <h5>Étudiants formés</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in delay-2">
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="15">0</div>
+                        <h5>Instructeurs experts</h5>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 fade-in delay-3">
+                    <div class="stat-card">
+                        <div class="stat-value" data-count="10">0</div>
+                        <h5>Années d'expérience</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Témoignages</h2>
+                <p>Ce que nos étudiants disent de nous</p>
+            </div>
+            
+            <div class="row">
+                <!-- Testimonial 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">
+                            "Avant de commencer le cours, j'étais vraiment anxieux à l'idée de conduire. Mais grâce à l'approche calme et encourageante de l'instructeur, j'ai rapidement commencé à me sentir en contrôle derrière le volant."
+                        </p>
+                        <div class="client-info">
+                          
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">
+                            "Ce qui m'a vraiment marqué, c'est la patience et le professionnalisme de tous. Les leçons étaient structurées mais jamais accablantes. Je me sentais en sécurité et soutenue à chaque étape."
+                        </p>
+                        <div class="client-info">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-content">
+                            "J'avais pris une pause dans l'apprentissage de la conduite et je ne pensais jamais m'y remettre. Mais cette école a changé cela. L'équipe m'a encouragée dès le premier jour."
+                        </p>
+                        <div class="client-info">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <!-- <section class="cta-section bg-gradient">
+        <div class="cta-pattern"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="text-white mb-4">Prêt à commencer votre aventure sur la route ?</h2>
+                <p class="lead text-white mb-5">Inscrivez-vous dès aujourd'hui et bénéficiez de 10% de réduction sur
+                    votre première formation</p>
+                <a href="#" class="btn btn-light btn-lg">S'inscrire maintenant</a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <!-- Overlay -->
+        <div class="cta-overlay"></div>
+
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="text-white mb-4">Prêt à commencer votre aventure sur la route ?</h2>
+                <p class="lead text-white mb-5">
+                    Inscrivez-vous dès aujourd'hui et bénéficiez de 10% de réduction sur votre première formation
+                </p>
+
+            </div>
+
+            <a href="#" class="cta-btn btn-light btn-lg">S'inscrire maintenant</a>
+
+        </div>
+    </section>
+
+      <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Moments de conduite</h2>
+                <p>Suivez notre aventure sur Instagram pour plus de contenus en coulisses</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll">
+                    <img src=".\BENIN AUTO ECOLE-33.jpg"
+                        alt="Auto-école">
+                    <div class="gallery-overlay">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src=".\DSC03533.JPG"
+                        alt="Leçon de conduite">
+                    <div class="gallery-overlay">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src=".\BENIN AUTO ECOLE-31.jpg"
+                        alt="Voiture">
+                    <div class="gallery-overlay">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src=".\BENIN AUTO ECOLE-30.jpg"
+                        alt="Conduite">
+                    <div class="gallery-overlay">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <img src="./BAE_LOGO 0_1-01.png" alt="Logo BAE" class="img-fluid" style="max-height: 80px; width: auto;">
+                    </div>
+                    <p>De la première leçon au permis — nous vous accompagnons à chaque étape de votre parcours de conduite.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Liens Rapides</h5>
+                    <div class="footer-links">
+                        <a href="./Home.html">Accueil</a>
+                        <a href="./About Us.html">À propos</a>
+                        <a href="./Courses.html">Cours</a>
+                        <a href="./Services.html">Services</a>
+                        <a href="./Testimonials.html">Témoignages</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-title">Nos Formations</h5>
+                    <div class="footer-links">
+                        <a href="#">Conduite Accompagnée</a>
+                        <a href="#">Permis B</a>
+                        <a href="#">Conduite Supervisée</a>
+                        <a href="#">Perfectionnement</a>
+                        <a href="#">Conduite Écologique</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-map-marker-alt me-2"></i> Rue de la Conduite</a>
+                        <a href="#"><i class="fas fa-phone me-2"></i> +229 01 61 12 00 10</a>
+                        <a href="#"><i class="fas fa-envelope me-2"></i> contact@beninautoecole.com</a>
+                        <a href="#"><i class="fas fa-clock me-2"></i> Lun-Ven: 8h-20h, Sam: 9h-18h</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p class="mb-0">Tous droits réservés. | <a href="#" class="">Politique de
+                        confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Hero text animation
+            setTimeout(() => {
+                document.querySelector('.hero-title').classList.add('animate');
+                document.querySelector('.hero-subtitle').classList.add('animate');
+            }, 300);
+
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+
+            //      // Initialize dropdowns for mobile
+            // document.querySelectorAll('.dropdown-toggle').forEach(item => {
+            //     item.addEventListener('click', event => {
+            //         if (window.innerWidth < 992) {
+            //             event.preventDefault();
+            //             const menu = item.nextElementSibling;
+            //             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            //         }
+            //     });
+            // });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                if (window.innerWidth < 992) {
+                    const dropdowns = document.querySelectorAll('.dropdown-menu');
+                    dropdowns.forEach(menu => {
+                        if (!menu.parentElement.contains(event.target)) {
+                            menu.style.display = 'none';
+                        }
+                    });
+                }
+            });
+
+
+            // Initialisation du menu déroulant pour "About Us" sur mobile
+            const aboutLink = document.querySelector('.about-us-link');
+            const dropdownIcon = document.querySelector('.mobile-dropdown-icon');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            if (aboutLink) {
+                aboutLink.addEventListener('click', function (e) {
+                    if (window.innerWidth < 992) {
+                        e.preventDefault();
+                        const isOpen = dropdownMenu.style.display === 'block';
+
+                        // Fermer tous les autres menus déroulants
+                        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                            if (menu !== dropdownMenu) {
+                                menu.style.display = 'none';
+                            }
+                        });
+
+                        // Basculer le menu actuel
+                        dropdownMenu.style.display = isOpen ? 'none' : 'block';
+
+                        // Rotation de l'icône
+                        dropdownIcon.classList.toggle('rotate', !isOpen);
+                    }
+                });
+            }
+
+            // Fade-in elements when they come into view
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('appear');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+
+            // Counter animation
+            const counters = document.querySelectorAll('.stat-value');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-count');
+                    const count = +counter.innerText.replace('%', '');
+
+                    const inc = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                observer.observe(counter);
+                counter.innerText = '0';
+
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCount();
+                            counterObserver.unobserve(counter);
+                        }
+                    });
+                });
+
+                counterObserver.observe(counter);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener("scroll", function () {
+            const floating = document.querySelector(".floating-content");
+            const footer = document.querySelector("footer");
+
+            if (!floating || !footer) return;
+
+            let footerTop = footer.getBoundingClientRect().top;
+            let windowHeight = window.innerHeight;
+
+            if (footerTop < windowHeight - 20) {
+                // Si le footer est visible → pousse le bouton vers le haut
+                floating.style.position = "absolute";
+                floating.style.bottom = (window.innerHeight - footerTop + 20) + "px";
+            } else {
+                // Sinon → bouton flottant normal
+                floating.style.position = "fixed";
+                floating.style.bottom = "30%";
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

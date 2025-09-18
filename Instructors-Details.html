@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benin Auto-ecole</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #B50011;
+            --secondary: #FF4F4F;
+            --light: #FAFAFA;
+            --dark: #2B2B2B;
+            --gray: #C8C8C8;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+              --primary: #D92332;
+            /* Rouge cerise */
+            --primary-light: #F17A82;
+            /* Rouge pastel */
+            --light: #FFFFFF;
+            /* Blanc neige */
+            --dark: #111111;
+            /* Noir carbone */
+            --gray: #E4E4E4;
+            /* Gris perle */
+            --deep-red: #B50011;
+            --orange-red: #FF4F4F;
+            --off-white: #FAFAFA;
+            --dark-gray: #2B2B2B;
+            --silver-gray: #C8C8C8;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        .text-primary {
+            color: var(--primary) !important;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary) !important;
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        }
+        
+        .section {
+            padding: 100px 0;
+        }
+        
+        /* Navigation moderne avec glassmorphism */
+        .navbar {
+            padding: 20px 0;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+            background: rgba(185, 170, 171, 0.2) !important;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+         .navbar .dropdown-menu {
+            /* background: linear-gradient(45deg, rgba(204, 203, 203, 0.9) 0%, rgba(217, 35, 50, 0.7) 100%); */
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            background: rgba(185, 170, 171, 0.2);
+            border: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 10px 0;
+            margin-top: 8px;
+            z-index: 100;
+        }
+
+        .navbar .dropdown-menu .dropdown-item {
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: var(--transition);
+            border-radius: 5px;
+            margin: 0 5px;
+            width: calc(100% - 10px);
+        }
+
+        .navbar .dropdown-menu .dropdown-item:hover {
+            /* background: rgba(217, 35, 50, 0.2); */
+            background: rgba(185, 170, 171, 0.2);
+            transform: translateX(5px);
+            color: var(--light);
+        }
+
+        .navbar .dropdown-menu .dropdown-item:focus {
+            /* background: rgba(217, 35, 50, 0.2); */
+            background: rgba(185, 170, 171, 0.2);
+            transform: translateX(5px);
+            color: var(--light);
+        }
+
+        
+        .navbar-brand img {
+            height: 40px;
+            transition: var(--transition);
+        }
+        
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+            margin: 0 8px;
+            padding: 8px 0 !important;
+            color: var(--dark) !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white !important;
+            border-radius: 50px;
+            padding: 10px 25px !important;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(181, 0, 17, 0.3);
+            transition: var(--transition);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(181, 0, 17, 0.4);
+        }
+        
+        /* Hero section immersive */
+        .hero-section {
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(43, 43, 43, 0.95) 0%, rgba(27, 27, 27, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1542228262-3d663b306a53?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #FFF, var(--gray));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.3s;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.5s;
+        }
+        
+        .hero-img-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: scale(0.95);
+            animation: scaleIn 0.8s forwards 0.7s;
+        }
+        
+        .hero-img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            transform: scale(1.05);
+            transition: var(--transition);
+        }
+        
+        .hero-img-container:hover .hero-img {
+            transform: scale(1.08);
+        }
+        
+        .decor-element {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 79, 79, 0.2) 0%, rgba(181, 0, 17, 0) 70%);
+            z-index: 1;
+        }
+        
+        .decor-1 {
+            top: 10%;
+            right: 10%;
+        }
+        
+        .decor-2 {
+            bottom: 20%;
+            left: 10%;
+        }
+        
+        /* Cartes de service animées */
+        .instructor-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            height: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .instructor-card.animate {
+            animation: fadeUp 0.6s forwards;
+        }
+        
+        .instructor-card:nth-child(2) { animation-delay: 0.2s; }
+        .instructor-card:nth-child(3) { animation-delay: 0.4s; }
+        
+        .instructor-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .instructor-card:hover .card-img {
+            transform: scale(1.1);
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(181, 0, 17, 0.3);
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .card-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .card-text {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        
+        .card-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--dark);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .card-btn i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .card-btn:hover {
+            color: var(--primary);
+        }
+        
+        .card-btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Section CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%), 
+                        url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/diagmonds.png');
+            opacity: 0.1;
+        }
+        
+        .cta-title {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .cta-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .cta-btn:hover:before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .cta-btn:hover {
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Galerie Instagram */
+        .gallery-section {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        
+        .gallery-item.animate {
+            animation: scaleIn 0.6s forwards;
+        }
+        
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(181, 0, 17, 0.7), rgba(255, 79, 79, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .insta-icon {
+            font-size: 2.5rem;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 100px 0 0;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 25px;
+        }
+        
+        .footer-text {
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 350px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 12px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            padding-left: 0;
+        }
+        
+        .footer-links a:before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 20px;
+        }
+        
+        .footer-links a:hover:before {
+            opacity: 1;
+            left: 0;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 0;
+            margin-top: 80px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn.prod.website-files.com/686b8973aa060547b4f5d4d2/686f8682707844cc2b30d0a0_Drivora%203.svg" alt="Drivora">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Démos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Accueil 1</a></li>
+                            <li><a class="dropdown-item" href="#">Accueil 2</a></li>
+                            <li><a class="dropdown-item" href="#">Accueil 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">À propos</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">À propos</a></li>
+                            <li><a class="dropdown-item" href="#">Instructeurs</a></li>
+                            <li><a class="dropdown-item" href="#">Tarifs</a></li>
+                            <li><a class="dropdown-item" href="#">FAQ</a></li>
+                            <li><a class="dropdown-item" href="#">Témoignages</a></li>
+                            <li><a class="dropdown-item" href="#">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Toutes les pages</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Accueil 1</a></li>
+                            <li><a class="dropdown-item" href="#">Accueil 2</a></li>
+                            <li><a class="dropdown-item" href="#">Accueil 3</a></li>
+                            <li><a class="dropdown-item" href="#">À propos</a></li>
+                            <li><a class="dropdown-item" href="#">Services</a></li>
+                            <li><a class="dropdown-item" href="#">Cours</a></li>
+                            <li><a class="dropdown-item" href="#">Instructeurs</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="#" class="btn nav-btn ms-3">Consultation gratuite</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="decor-element decor-1"></div>
+        <div class="decor-element decor-2"></div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <p class="text-primary mb-3">Développeuse de cours</p>
+                    <h1 class="hero-title">Mia Thompson</h1>
+                    <p class="hero-subtitle">Une instructrice patiente qui met l'accent sur la sécurité et la vigilance dès le premier jour. Elle développe des habitudes durables au-delà de l'examen.</p>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#" class="btn btn-light btn-lg px-4 py-3 rounded-pill fw-bold">Consultation gratuite</a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill fw-bold">Voir les cours</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="hero-img-container">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mia Thompson" class="hero-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Description Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bg-white p-5 rounded-4 shadow-sm">
+                        <h2 class="mb-4">Philosophie d'enseignement</h2>
+                        <p class="lead mb-4">Mia estime qu'une bonne conduite commence par la confiance, la clarté et une pratique régulière. Chaque leçon vise non seulement la réussite à l'examen, mais surtout à former des conducteurs sûrs et autonomes pour la vie.</p>
+                        
+                        <div class="row mt-5">
+                            <div class="col-md-6 mb-4">
+                                <h4 class="mb-3">Approche des leçons</h4>
+                                <p>Avec une pédagogie calme et structurée, chaque séance est conçue pour aider les élèves à progresser à leur rythme — qu'ils débutent ou souhaitent se perfectionner. Ce à quoi s'attendre lors d'une leçon type :</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Accompagnement pas à pas sur les compétences clés</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Retours en temps réel avec conseils pratiques</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Atmosphère encourageante et sans pression</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Adaptation aux styles d'apprentissage individuels</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <h4 class="mb-3">Axes prioritaires</h4>
+                                <p>Les élèves bénéficient d'un fort accent sur la conduite en conditions réelles et les techniques de conduite défensive. Mia prépare les apprenants aux imprévus — et pas seulement à l'examen. Points forts :</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Stratégies de conduite défensive</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Perception des dangers et gestion des risques</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Confiance en milieu urbain et sur autoroute</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Simulation et préparation à l'examen</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-light p-4 rounded-3 mt-5 border-start border-3 border-primary">
+                            <p class="mb-0 fst-italic">"Mia a été patiente, claire et toujours encourageante. Je n'aurais jamais pensé me sentir aussi à l'aise en circulation après seulement quelques leçons !"</p>
+                            <p class="mt-2 fw-bold">— Sarah Johnson, ancienne élève</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Nos instructeurs experts</h2>
+                <p class="lead">Chaque membre de notre équipe apporte un calme rassurant, une connaissance approfondie et une passion pour l'accompagnement des élèves</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="instructor-card">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Emma Clarkson" class="card-img">
+                            <span class="card-badge">Instructrice de conduite</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Emma Clarkson</h3>
+                            <span class="card-role">Spécialiste des jeunes conducteurs</span>
+                            <p class="card-text">Emma a aidé plus de 500 élèves à obtenir leur permis avec un taux de réussite de 98% au premier essai.</p>
+                            <a href="#" class="card-btn">Voir le profil <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="instructor-card">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Daniel Reyes" class="card-img">
+                            <span class="card-badge">Coordinateur des élèves</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Daniel Reyes</h3>
+                            <span class="card-role">Spécialiste des conducteurs anxieux</span>
+                            <p class="card-text">Daniel aide les conducteurs anxieux à surmonter leurs peurs et à gagner en confiance.</p>
+                            <a href="#" class="card-btn">Voir le profil <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="instructor-card">
+                        <div class="card-img-container">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jason Miller" class="card-img">
+                            <span class="card-badge">Instructeur principal</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Jason Miller</h3>
+                            <span class="card-role">Expert en conduite défensive</span>
+                            <p class="card-text">Avec 15 ans d'expérience, Jason se concentre sur les techniques de conduite avancées et la sécurité.</p>
+                            <a href="#" class="card-btn">Voir le profil <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-dark btn-lg px-5 py-3">Voir tous les instructeurs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="cta-title mb-4">Faites le premier pas vers une conduite en toute confiance et liberté</h2>
+                    <button class="cta-btn">Commencer maintenant <i class="fas fa-arrow-right ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Suivez notre aventure</h2>
+                <p>Découvrez les coulisses de notre auto-école et les réussites de nos élèves</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <i class="fab fa-instagram insta-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <i class="fab fa-instagram insta-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <i class="fab fa-instagram insta-icon"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gallery" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <i class="fab fa-instagram insta-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <img src="./BAE_LOGO 0_1-01.png" alt="Logo BAE" class="img-fluid" style="max-height: 80px; width: auto;">
+                    </div>
+                    <p>De la première leçon au permis — nous vous accompagnons à chaque étape de votre parcours de conduite.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Liens Rapides</h5>
+                    <div class="footer-links">
+                        <a href="./Home.html">Accueil</a>
+                        <a href="./About Us.html">À propos</a>
+                        <a href="./Courses.html">Cours</a>
+                        <a href="./Services.html">Services</a>
+                        <a href="./Testimonials.html">Témoignages</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-title">Nos Formations</h5>
+                    <div class="footer-links">
+                        <a href="#">Conduite Accompagnée</a>
+                        <a href="#">Permis B</a>
+                        <a href="#">Conduite Supervisée</a>
+                        <a href="#">Perfectionnement</a>
+                        <a href="#">Conduite Écologique</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-map-marker-alt me-2"></i> Cotonou</a>
+                        <a href="#"><i class="fas fa-phone me-2"></i>+229 0154914464</a>
+                        <a href="#"><i class="fas fa-envelope me-2"></i> contact@Bénin-ecole</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p class="mb-0">Tous droits réservés. | <a href="#" class="text-muted">Politique de
+                        confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Animation on scroll
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Animate instructor cards
+            const instructorCards = document.querySelectorAll('.instructor-card');
+            instructorCards.forEach(card => {
+                card.classList.add('animate');
+            });
+            
+            // Animate gallery items
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            galleryItems.forEach(item => {
+                item.classList.add('animate');
+            });
+        });
+    </script>
+</body>
+</html>

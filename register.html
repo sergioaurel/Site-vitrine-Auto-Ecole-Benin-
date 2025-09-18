@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription - Bénin Auto École</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome 6 (pour les icônes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+:root {
+    --primary: #D92332;
+    /* Rouge cerise */
+    --primary-light: #F17A82;
+    /* Rouge pastel */
+    --light: #FFFFFF;
+    /* Blanc neige */
+    --dark: #111111;
+    /* Noir carbone */
+    --gray: #E4E4E4;
+    /* Gris perle */
+    --deep-red: #B50011;
+    --orange-red: #FF4F4F;
+    --off-white: #FAFAFA;
+    --dark-gray: #2B2B2B;
+    --silver-gray: #C8C8C8;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark);
+    background-color: var(--light);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.btn-gradient {
+    background: linear-gradient(90deg, var(--deep-red), var(--orange-red));
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+    box-shadow: 0 8px 20px rgba(181, 0, 17, 0.25);
+}
+
+.btn-gradient:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange-red), var(--deep-red));
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition);
+}
+
+.btn-gradient:hover:before {
+    opacity: 1;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(181, 0, 17, 0.35);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--light);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: none;
+    z-index: 1;
+}
+
+.btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--dark);
+    transition: var(--transition);
+    z-index: -1;
+}
+
+.btn-primary:hover:before {
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(217, 35, 50, 0.3);
+}
+
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.bg-dark {
+    background-color: var(--dark) !important;
+    color: var(--light);
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Header */
+.navbar {
+    height: 80px;
+    padding: 10px 0;
+    transition: var(--transition);
+   
+    /* background: linear-gradient(45deg, rgba(204, 203, 203, 0.8) 0%, rgba(217, 35, 50, 0.5) 100%); */
+        background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .dropdown-menu {
+    /* background: linear-gradient(45deg, rgba(204, 203, 203, 0.9) 0%, rgba(217, 35, 50, 0.7) 100%); */
+   
+    background: rgba(185, 170, 171, 0.2);
+    border: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 8px;
+    z-index: 100;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    color: var(--dark);
+    font-weight: 500;
+    padding: 8px 20px;
+    transition: var(--transition);
+    border-radius: 5px;
+    margin: 0 5px;
+    width: calc(100% - 10px);
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    /* background: rgba(217, 35, 50, 0.2); */
+    background: rgba(185, 170, 171, 0.2);
+    transform: translateX(5px);
+    color: var(--light);
+}
+
+.navbar .dropdown-menu .dropdown-item:focus {
+    /* background: rgba(217, 35, 50, 0.2); */
+    background: rgba(185, 170, 171, 0.2);
+    transform: translateX(5px);
+    color: var(--light);
+}
+
+.navbar.scrolled {
+    /* background: var(--light); */
+    background: rgba(185, 170, 171, 0.2);
+    color: var(--dark);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    transition: background ease 1s;
+}
+
+.navbar.scrolled .nav-link {
+    color: var(--dark);
+}
+
+.navbar-brand img {
+    height: 60px;
+    transition: var(--transition);
+}
+
+.nav-item {
+    margin: 0 5px;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0 15px;
+    position: relative;
+    color: var(--dark);
+    transition: var(--transition);
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--dark);
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+/* Dropdown hover effect for large screens */
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        right: 0;
+        left: auto;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 991.98px) {
+    .navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .navbar-collapse {
+        background: linear-gradient(45deg, rgba(204, 203, 203, 0.95) 0%, rgba(217, 35, 50, 0.85) 100%);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-item {
+        margin: 8px 0;
+    }
+
+    .nav-link {
+        padding: 10px 0;
+        color: var(--dark);
+        font-weight: 600;
+    }
+
+    .dropdown-menu {
+        background: rgba(255, 255, 255, 0.2);
+        margin: 5px 0 5px 15px;
+        border-left: 2px solid var(--primary);
+    }
+
+    .navbar .dropdown-menu .dropdown-item {
+        padding: 8px 15px;
+    }
+
+    .navbar-toggler {
+        border: none;
+        box-shadow: none !important;
+    }
+}
+
+.form-container{
+    margin: 50px;
+}
+
+        .form-card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .permit-info {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .permit-info.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .permit-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: white;
+            background-color: #dc3545; /* rouge par défaut */
+        }
+
+        .text-red {
+            color: #dc3545 !important;
+        }
+
+        .bg-red {
+            background-color: #dc3545 !important;
+        }
+
+        .bg-red.bg-opacity-10 {
+            background-color: rgba(220, 53, 69, 0.1) !important;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+        }
+
+        .form-check .form-check-input:checked {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Moderne -->
+     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./Home.html">
+                <img src="./BAE_LOGO 0_1-01.png" alt="Logo BAE">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Home.html">Accueil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link about-us-link" href="./About Us.html" role="button" data-bs-toggle="dropdown"
+                            id="aboutDropdown">À propos<i class="bi bi-chevron-down mobile-dropdown-icon"></i> </a>
+
+                        <ul class="dropdown-menu navbar-light navbar-expand-lg">
+                            <li><a class="dropdown-item" href="./About Us.html">À propos</a></li>
+                            <li><a class="dropdown-item" href="./Instructors.html">Instructeurs</a></li>
+                            <li><a class="dropdown-item" href="./Pricing.html">Tarifs</a></li>
+                            <li><a class="dropdown-item" href="./FAQ.html">FAQ</a></li>
+                            <li><a class="dropdown-item" href="./Testimonials.html">Témoignages</a></li>
+                            
+                        </ul>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Courses.html">Cours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Services.html">Services</a>
+                    </li>
+                </ul>
+                <!-- <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="#" class="btn btn-gradient">Free Consultation</a>
+                </div> -->
+                  <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="./register.html" class="btn btn-gradient">S'inscrire</a>
+                </div>
+                 <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="./login.html" class="btn btn-gradient">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<div class="min-vh-100 d-flex flex-column align-items-center pt-5 form-container">
+    <div class="w-100" style="max-width: 768px;">
+        <div class="bg-white p-4 p-sm-5 form-card">
+            <div class="text-center mb-5">
+                <h1 class="h4 fw-bold text-dark">Créer votre compte</h1>
+                <p class="text-muted">Choisissez votre formation au permis de conduire</p>
+            </div>
+
+            <form id="registrationForm" novalidate>
+                <!-- Nom complet -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">
+                        Nom complet <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Entrez votre nom complet" required>
+                    <div class="invalid-feedback">Le nom est requis.</div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">
+                        Adresse email <span class="text-danger">*</span>
+                    </label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="vous@exemple.com" required>
+                    <div class="invalid-feedback">Un email valide est requis.</div>
+                </div>
+
+                <!-- Téléphone -->
+                <div class="mb-3">
+                    <label for="phone" class="form-label">
+                        Numéro de téléphone <span class="text-danger">*</span>
+                    </label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+229 XX XX XX XX" required>
+                    <div class="invalid-feedback">Le numéro de téléphone est requis.</div>
+                </div>
+
+                <!-- Choix du Type de Permis -->
+                <div class="mb-4">
+                    <label for="permit_type_id" class="form-label mb-2">
+                        Type de permis souhaité <span class="text-danger">*</span>
+                    </label>
+                    <select class="form-select" id="permit_type_id" required>
+                        <option value="">-- Choisir votre formation --</option>
+                        <option value="1"
+                            data-description="Apprenez à conduire une voiture en toute sécurité avec notre formation complète."
+                            data-price="75 000 FCFA"
+                            data-duration="8"
+                            data-category="vehicle">
+                            Permis B - Voiture
+                        </option>
+                        <option value="2"
+                            data-description="Formation complète pour conduire une moto ou un scooter."
+                            data-price="50 000 FCFA"
+                            data-duration="6"
+                            data-category="motorcycle">
+                            Permis A - Moto
+                        </option>
+                        <option value="3"
+                            data-description="Formation pour la conduite de camions et véhicules lourds."
+                            data-price="120 000 FCFA"
+                            data-duration="12"
+                            data-category="truck">
+                            Permis C - Camion
+                        </option>
+                    </select>
+                    <div class="invalid-feedback">Veuillez choisir un type de permis.</div>
+
+                    <!-- Informations sur le permis sélectionné -->
+                    <div id="permit-info" class="permit-info d-none">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="permit-icon">🚗</div>
+                            <div class="flex-grow-1">
+                                <h4 class="h6 fw-semibold text-red mb-1">Détails de votre formation</h4>
+                                <p id="permit-description" class="text-muted small mb-3"></p>
+
+                                <div class="row g-2 small">
+                                    <div class="col-12 col-sm-6 d-flex align-items-center gap-2">
+                                        <i class="bi bi-cash text-red"></i>
+                                        <strong class="text-dark">Prix :</strong>
+                                        <span id="permit-price" class="text-red fw-bold"></span>
+                                    </div>
+                                    <div class="col-12 col-sm-6 d-flex align-items-center gap-2">
+                                        <i class="bi bi-clock text-red"></i>
+                                        <strong class="text-dark">Durée :</strong>
+                                        <span id="permit-duration" class="text-red"></span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-2 p-2 bg-red bg-opacity-10 rounded small text-red">
+                                    💡 <strong>Inclus :</strong> Code de la route + Formation pratique + Suivi personnalisé
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">
+                        Mot de passe <span class="text-danger">*</span>
+                    </label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" minlength="8" required>
+                    <div class="invalid-feedback">Le mot de passe doit contenir au moins 8 caractères.</div>
+                    <small class="text-muted">Minimum 8 caractères</small>
+                </div>
+
+                <!-- Confirmation mot de passe -->
+                <div class="mb-3">
+                    <label for="password_confirmation" class="form-label">
+                        Confirmer le mot de passe <span class="text-danger">*</span>
+                    </label>
+                    <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="••••••••" required>
+                    <div class="invalid-feedback">Les mots de passe doivent correspondre.</div>
+                </div>
+
+                <!-- Conditions d'utilisation -->
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="terms" name="terms" required>
+                        <label class="form-check-label small" for="terms">
+                            J'accepte les 
+                            <a href="#" class="text-red text-decoration-underline">conditions d'utilisation</a> 
+                            et la 
+                            <a href="#" class="text-red text-decoration-underline">politique de confidentialité</a> 
+                            de Bénin Auto École.
+                        </label>
+                        <div class="invalid-feedback">Vous devez accepter les conditions.</div>
+                    </div>
+                </div>
+
+                <!-- Boutons -->
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-4 gap-2">
+                    <a href="./login.html" class="text-center text-muted small">
+                        Déjà inscrit ? <strong class="text-dark">Se connecter</strong>
+                    </a>
+                    <button type="submit" class="btn btn-danger px-4 py-2 w-100 w-sm-auto">
+                        Commencer ma formation
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function (event) {
+                if (window.innerWidth < 992) {
+                    const dropdowns = document.querySelectorAll('.dropdown-menu');
+                    dropdowns.forEach(menu => {
+                        if (!menu.parentElement.contains(event.target)) {
+                            menu.style.display = 'none';
+                        }
+                    });
+                }
+            });
+
+
+            // Initialisation du menu déroulant pour "About Us" sur mobile
+            const aboutLink = document.querySelector('.about-us-link');
+            const dropdownIcon = document.querySelector('.mobile-dropdown-icon');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+
+            if (aboutLink) {
+                aboutLink.addEventListener('click', function (e) {
+                    if (window.innerWidth < 992) {
+                        e.preventDefault();
+                        const isOpen = dropdownMenu.style.display === 'block';
+
+                        // Fermer tous les autres menus déroulants
+                        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                            if (menu !== dropdownMenu) {
+                                menu.style.display = 'none';
+                            }
+                        });
+
+                        // Basculer le menu actuel
+                        dropdownMenu.style.display = isOpen ? 'none' : 'block';
+
+                        // Rotation de l'icône
+                        dropdownIcon.classList.toggle('rotate', !isOpen);
+                    }
+                });
+            }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const permitSelect = document.getElementById('permit_type_id');
+        const permitInfo = document.getElementById('permit-info');
+        const permitDescription = document.getElementById('permit-description');
+        const permitPrice = document.getElementById('permit-price');
+        const permitDuration = document.getElementById('permit-duration');
+        const permitIcon = document.querySelector('.permit-icon');
+
+        // Icônes Font Awesome par catégorie
+        const categoryIcons = {
+            'vehicle': '<i class="fas fa-car"></i>',
+            'motorcycle': '<i class="fas fa-motorcycle"></i>',
+            'truck': '<i class="fas fa-truck"></i>',
+            'bus': '<i class="fas fa-bus"></i>',
+            'trailer': '<i class="fas fa-trailer"></i>'
+        };
+
+        // Couleurs par catégorie (Bootstrap ou custom)
+        const categoryColors = {
+            'vehicle': 'bg-primary',
+            'motorcycle': 'bg-warning',
+            'truck': 'bg-success',
+            'bus': 'bg-info',
+            'trailer': 'bg-danger'
+        };
+
+        function updatePermitInfo() {
+            const selectedOption = permitSelect.options[permitSelect.selectedIndex];
+
+            if (permitSelect.value && selectedOption.dataset.description) {
+                // Mettre à jour les informations
+                permitDescription.textContent = selectedOption.dataset.description;
+                permitPrice.textContent = selectedOption.dataset.price;
+                permitDuration.textContent = selectedOption.dataset.duration + ' semaines';
+
+                // Mise à jour icône
+                const category = selectedOption.dataset.category || 'vehicle';
+                permitIcon.innerHTML = categoryIcons[category] || '<i class="fas fa-car"></i>';
+                
+                // Appliquer la couleur de fond
+                permitIcon.className = 'permit-icon ' + (categoryColors[category] || 'bg-danger');
+
+                // Afficher avec animation
+                permitInfo.classList.remove('d-none');
+                setTimeout(() => permitInfo.classList.add('show'), 10);
+            } else {
+                // Cacher avec animation
+                permitInfo.classList.remove('show');
+                setTimeout(() => {
+                    if (!permitInfo.classList.contains('show')) {
+                        permitInfo.classList.add('d-none');
+                    }
+                }, 300);
+            }
+        }
+
+        // Écouter les changements
+        permitSelect.addEventListener('change', updatePermitInfo);
+
+        // Initialiser si une option est déjà sélectionnée (ex: avec `old()`)
+        if (permitSelect.value) updatePermitInfo();
+
+        // Validation du formulaire
+        const form = document.getElementById('registrationForm');
+        form.addEventListener('submit', function (e) {
+            // Vérifier la confirmation du mot de passe
+            const password = document.getElementById('password').value;
+            const confirm = document.getElementById('password_confirmation').value;
+            if (password !== confirm) {
+                e.preventDefault();
+                e.stopPropagation();
+                document.getElementById('password_confirmation').classList.add('is-invalid');
+            }
+
+            if (!form.checkValidity()) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+        }, false);
+
+        // Réinitialiser l'erreur de confirmation
+        document.getElementById('password_confirmation').addEventListener('input', function () {
+            if (this.value === document.getElementById('password').value) {
+                this.classList.remove('is-invalid');
+            } else {
+                this.classList.add('is-invalid');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

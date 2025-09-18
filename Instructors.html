@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructeurs - Bénin Auto-ecole</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #B50011;
+            --secondary-color: #FF4F4F;
+            --light-bg: #FAFAFA;
+            --dark-bg: #2B2B2B;
+            --text-dark: #2B2B2B;
+            --text-light: #C8C8C8;
+       
+            --deep-red: #B50011;
+            --orange-red: #FF4F4F;
+            --off-white: #FAFAFA;
+            --dark-gray: #2B2B2B;
+            --silver-gray: #C8C8C8;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --primary: #D92332;
+
+              --primary: #D92332;
+            /* Rouge cerise */
+            --primary-light: #F17A82;
+            /* Rouge pastel */
+            --light: #FFFFFF;
+            /* Blanc neige */
+            --dark: #111111;
+            /* Noir carbone */
+            --gray: #E4E4E4;
+            /* Gris perle */
+            --deep-red: #B50011;
+            --orange-red: #FF4F4F;
+            --off-white: #FAFAFA;
+            --dark-gray: #2B2B2B;
+            --silver-gray: #C8C8C8;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+            
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+        
+      
+  .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation Moderne - Glassmorphism */
+       .navbar {
+        height: 80px;
+        padding: 10px 0;
+        transition: var(--transition);
+        background: #fff; /* Blanc opaque */
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+
+        .navbar.scrolled {
+            /* background: var(--light); */
+            background:#fff;
+            color: var(--dark);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            transition: background ease 1s;
+        }
+
+        .navbar-brand img {
+            height: 36px;
+            transition: var(--transition);
+        }
+
+         .navbar .dropdown-menu {
+            /* background: linear-gradient(45deg, rgba(204, 203, 203, 0.9) 0%, rgba(217, 35, 50, 0.7) 100%); */
+           
+            background: #fff;
+            border: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 10px 0;
+            margin-top: 8px;
+            z-index: 100;
+        }
+
+        .navbar .dropdown-menu .dropdown-item {
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: var(--transition);
+            border-radius: 5px;
+            margin: 0 5px;
+            width: calc(100% - 10px);
+        }
+
+        .navbar .dropdown-menu .dropdown-item:hover {
+            /* background: rgba(217, 35, 50, 0.2); */
+            background: rgba(185, 170, 171, 0.2);
+            transform: translateX(5px);
+            color: var(--light);
+        }
+
+        .navbar .dropdown-menu .dropdown-item:focus {
+            /* background: rgba(217, 35, 50, 0.2); */
+            background: rgba(185, 170, 171, 0.2);
+            transform: translateX(5px);
+            color: var(--light);
+        }
+
+
+        .navbar-nav .nav-link {
+            position: relative;
+            font-weight: 500;
+            color: var(--dark);
+            margin: 0 12px;
+            padding: 8px 0;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled .nav-link {
+            color: var(--dark);
+        }
+
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        
+        .navbar-nav .nav-link:hover:after,
+        .navbar-nav .nav-link.active:after {
+            width: 100%;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(90deg, var(--deep-red), var(--orange-red));
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(181, 0, 17, 0.25);
+        }
+
+        .btn-gradient:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--orange-red), var(--deep-red));
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn-gradient:hover:before {
+            opacity: 1;
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(181, 0, 17, 0.35);
+        }
+
+/* Dropdown hover effect for large screens */
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        right: 0;
+        left: auto;
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 991.98px) {
+    .navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .navbar-collapse {
+        background: linear-gradient(45deg, rgba(204, 203, 203, 0.95) 0%, rgba(217, 35, 50, 0.85) 100%);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-item {
+        margin: 8px 0;
+    }
+
+    .nav-link {
+        padding: 10px 0;
+        color: var(--off-white);
+        font-weight: 600;
+    }
+
+    .dropdown-menu {
+        background: rgba(255, 255, 255, 0.2);
+        margin: 5px 0 5px 15px;
+        border-left: 2px solid var(--primary);
+    }
+
+    .navbar .dropdown-menu .dropdown-item {
+        padding: 8px 15px;
+    }
+
+    .navbar-toggler {
+        border: none;
+        box-shadow: none !important;
+    }
+}
+
+        /* Hero Section Immersive */
+        .hero-section {
+            background: linear-gradient(rgba(43, 43, 43, 0.9), rgba(43, 43, 43, 0.9)), 
+                        url('BENIN AUTO ECOLE-27.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(181, 0, 17, 0.2) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 79, 79, 0.15) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            background: linear-gradient(to right, #fff, #FF4F4F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        
+        .testimonial-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            margin-top: 40px;
+            transition: all 0.4s ease;
+        }
+        
+        .testimonial-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        /* Instructeurs Section */
+        .instructors-section {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .instructors-section::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 79, 79, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .instructors-section::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(181, 0, 17, 0.08) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+        }
+        
+        .instructor-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .instructor-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructor-img {
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .instructor-card:hover .instructor-img {
+            transform: scale(1.1);
+        }
+        
+        .instructor-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(43, 43, 43, 0.8), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+        }
+        
+        .instructor-card:hover .instructor-overlay {
+            opacity: 1;
+        }
+        
+        .instructor-body {
+            padding: 25px;
+        }
+        
+        .instructor-name {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+        
+        .instructor-position {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .instructor-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(181, 0, 17, 0.3);
+        }
+        
+        /* Benefits Section */
+        .benefits-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(181, 0, 17, 0.1);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(181, 0, 17, 0.2);
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(43, 43, 43, 0.95), rgba(43, 43, 43, 0.95)), 
+            url('BENIN AUTO ECOLE-14.jpg ');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+        
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stars {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 150px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('DSC03571.JPG');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+        }
+        
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(181, 0, 17, 0.3) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .cta-title {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: var(--primary-color);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transition: width 0.5s ease;
+            z-index: -1;
+        }
+        
+        .cta-btn:hover::before {
+            width: 100%;
+        }
+        
+        .cta-btn:hover {
+            color: white;
+        }
+
+        
+    /* Footer */
+        .footer {
+            background: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 100px 0 40px;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--orange-red), transparent);
+        }
+        
+        .footer-title {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--deep-red), var(--orange-red));
+            border-radius: 2px;
+        }
+        
+        .footer-logo {
+            height: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-links a::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: var(--transition);
+            color: var(--orange-red);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 30px;
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    margin-right: 10px;
+    transition: var(--transition);
+    font-size: 1.2rem;
+}
+
+.social-icons a:hover {
+    background: var(--primary);
+    color: var(--light);
+    transform: translateY(-5px);
+}
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .copyright a {
+            color: var(--orange-red);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .copyright a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 {
+            transition-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            transition-delay: 0.2s;
+        }
+        
+        .delay-3 {
+            transition-delay: 0.3s;
+        }
+        
+        .delay-4 {
+            transition-delay: 0.4s;
+        }
+        
+        .delay-5 {
+            transition-delay: 0.5s;
+        }
+        
+        .delay-6 {
+            transition-delay: 0.6s;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .cta-title {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2.2rem;
+            }
+            
+            .instructor-img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+   
+    <!-- Navigation Moderne -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./Home.html">
+                <img src="./BAE_LOGO 0_1-01.png" alt="Logo BAE">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Home.html">Accueil</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link about-us-link" href="./About Us.html" role="button" data-bs-toggle="dropdown"
+                            id="aboutDropdown">À propos <i class="bi bi-chevron-down mobile-dropdown-icon"></i> </a>
+
+                        <ul class="dropdown-menu navbar-light navbar-expand-lg">
+                            <li><a class="dropdown-item" href="./About Us.html">À propos</a></li>
+                            <li><a class="dropdown-item" href="./Instructors.html">Instructeurs</a></li>
+                            <li><a class="dropdown-item" href="./Pricing.html">Tarifs</a></li>
+                            <li><a class="dropdown-item" href="./FAQ.html">FAQ</a></li>
+                            <li><a class="dropdown-item" href="./Testimonials.html">Témoignages</a></li>
+
+                        </ul>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Courses.html">Cours</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="./Services.html">Services</a>
+                    </li>
+                    
+                </ul>
+                <!-- <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="#" class="btn btn-gradient">Free Consultation</a>
+                </div> -->
+                 <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="./register.html" class="btn btn-gradient">S'inscrire</a>
+                </div>
+                 <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="./login.html" class="btn btn-gradient">Se connecter</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section Immersive -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in appear">
+                    <h1 class="hero-title">Rencontrez l'équipe derrière votre réussite au volant</h1>
+                    <p class="hero-subtitle">Découvrez les professionnels dévoués qui rendent votre parcours de conduite fluide, sûr et enrichissant</p>
+                    
+            
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0 fade-in appear delay-2">
+                    <div class="position-relative">
+                        <img src="./BENIN AUTO ECOLE-14.jpg" 
+                             alt="Instructeurs de conduite" 
+                             class="img-fluid rounded-3 shadow floating">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section class="instructors-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center fade-in appear">
+                    <h2 class="section-title">Des instructeurs qui vous font sentir en sécurité sur la route</h2>
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Instructor 1 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="instructor-card fade-in appear">
+                        <span class="instructor-badge">Expert en conduite</span>
+                        <img src=".\BENIN AUTO ECOLE-28.jpg" 
+                             alt="Emma Clarkson" 
+                             class="instructor-img w-100">
+                        <div class="instructor-overlay">
+                            <div>
+                                <a href="#" class="btn btn-light">Voir le profil <i class="ms-2 fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="instructor-body">
+                            <h5 class="instructor-name">Emma DADO</h5>
+                            <span class="instructor-position">Instructeur de conduite</span>
+                            <div class="d-flex mt-3">
+                                <span class="badge bg-light text-dark me-2">Patience</span>
+                                <span class="badge bg-light text-dark me-2">Sécurité</span>
+                                <span class="badge bg-light text-dark">Expérience</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructor 2 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="instructor-card fade-in appear delay-1">
+                        <span class="instructor-badge">Concepteur de cours</span>
+                        <img src=".\BENIN AUTO ECOLE-3.jpg" 
+                             alt="Mia Thompson" 
+                             class="instructor-img w-100">
+                        <div class="instructor-overlay">
+                            <div>
+                                <a href="#" class="btn btn-light">Voir le profil <i class="ms-2 fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="instructor-body">
+                            <h5 class="instructor-name">Jean DENOU</h5>
+                            <span class="instructor-position">Développeur de cours</span>
+                            <div class="d-flex mt-3">
+                                <span class="badge bg-light text-dark me-2">Innovation</span>
+                                <span class="badge bg-light text-dark me-2">Éducation</span>
+                                <span class="badge bg-light text-dark">Stratégie</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructor 3 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="instructor-card fade-in appear delay-2">
+                        <span class="instructor-badge">Support aux élèves</span>
+                        <img src=".\DSC03545.JPG" 
+                             alt="Daniel Reyes" 
+                             class="instructor-img w-100">
+                        <div class="instructor-overlay">
+                            <div>
+                                <a href="#" class="btn btn-light">Voir le profil <i class="ms-2 fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="instructor-body">
+                            <h5 class="instructor-name">Daniel Reyes</h5>
+                            <span class="instructor-position">Coordinateur des élèves</span>
+                            <div class="d-flex mt-3">
+                                <span class="badge bg-light text-dark me-2">Support</span>
+                                <span class="badge bg-light text-dark me-2">Organisation</span>
+                                <span class="badge bg-light text-dark">Accompagnement</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructor 4 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="instructor-card fade-in appear">
+                        <span class="instructor-badge">Expert senior</span>
+                        <img src=".\BENIN AUTO ECOLE-13.jpg" 
+                             alt="Jason Miller" 
+                             class="instructor-img w-100">
+                        <div class="instructor-overlay">
+                            <div>
+                                <a href="#" class="btn btn-light">Voir le profil <i class="ms-2 fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="instructor-body">
+                            <h5 class="instructor-name">Luc DOSSOU</h5>
+                            <span class="instructor-position">Instructeur principal de conduite</span>
+                            <div class="d-flex mt-3">
+                                <span class="badge bg-light text-dark me-2">Expérience</span>
+                                <span class="badge bg-light text-dark me-2">Précision</span>
+                                <span class="badge bg-light text-dark">Mentorat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructor 5 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="instructor-card fade-in appear delay-1">
+                        <span class="instructor-badge">Conduite défensive</span>
+                        <img src=".\BENIN AUTO ECOLE-7.jpg" 
+                             alt="Sofia Hernandez" 
+                             class="instructor-img w-100">
+                        <div class="instructor-overlay">
+                            <div>
+                                <a href="#" class="btn btn-light">Voir le profil <i class="ms-2 fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="instructor-body">
+                            <h5 class="instructor-name">Sofia KESSOU</h5>
+                            <span class="instructor-position">Coach en conduite défensive</span>
+                            <div class="d-flex mt-3">
+                                <span class="badge bg-light text-dark me-2">Sécurité</span>
+                                <span class="badge bg-light text-dark me-2">Conscience</span>
+                                <span class="badge bg-light text-dark">Prévention</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Instructor 6 -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="instructor-card fade-in appear delay-2">
+                        <span class="instructor-badge">Spécialiste automobile</span>
+                        <img src=".\BENIN AUTO ECOLE-12.jpg" 
+                             alt="Mark Taylor" 
+                             class="instructor-img w-100">
+                        <div class="instructor-overlay">
+                            <div>
+                                <a href="#" class="btn btn-light">Voir le profil <i class="ms-2 fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="instructor-body">
+                            <h5 class="instructor-name">Mark HADE</h5>
+                            <span class="instructor-position">Instructeur spécialiste automobile</span>
+                            <div class="d-flex mt-3">
+                                <span class="badge bg-light text-dark me-2">Technologie</span>
+                                <span class="badge bg-light text-dark me-2">Maintenance</span>
+                                <span class="badge bg-light text-dark">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6 fade-in appear">
+                    <h2 class="section-title">Pourquoi choisir nos instructeurs ?</h2>
+                    <p class="lead">Nous ne sommes pas qu'une auto-école — nous sommes une communauté bienveillante qui vous aide à gagner en confiance et en préparation</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4 fade-in appear">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h4>Équipe certifiée</h4>
+                        <p>Tous nos instructeurs sont pleinement certifiés avec des années d'expérience et une formation continue.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4 fade-in appear delay-1">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4>Horaires flexibles</h4>
+                        <p>Choisissez des horaires qui vous conviennent, y compris le soir et le week-end.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4 fade-in appear delay-2">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h4>Voitures modernes</h4>
+                        <p>Apprenez dans des véhicules récents équipés de dispositifs de sécurité avancés.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4 fade-in appear">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Taux de réussite élevé</h4>
+                        <p>95% de nos élèves réussissent l'examen du premier coup.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4 fade-in appear delay-1">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4>Succès prouvé</h4>
+                        <p>Des milliers d'élèves ont réussi grâce à nos méthodes.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4 fade-in appear delay-2">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>Support 24/7</h4>
+                        <p>Obtenez des réponses à tout moment grâce à notre équipe de support dédiée.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center fade-in appear">
+                    <h2 class="cta-title">Faites le premier pas vers une conduite en toute confiance et liberté</h2>
+                    <button class="cta-btn mt-4">Commencer maintenant</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <img src="./BAE_LOGO 0_1-01.png" alt="Logo BAE" class="img-fluid" style="max-height: 80px; width: auto;">
+                    </div>
+                    <p>De la première leçon au permis — nous vous accompagnons à chaque étape de votre parcours de conduite.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">Liens Rapides</h5>
+                    <div class="footer-links">
+                        <a href="./Home.html">Accueil</a>
+                        <a href="./About Us.html">À propos</a>
+                        <a href="./Courses.html">Cours</a>
+                        <a href="./Services.html">Services</a>
+                        <a href="./Testimonials.html">Témoignages</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-title">Nos Formations</h5>
+                    <div class="footer-links">
+                        <a href="#">Conduite Accompagnée</a>
+                        <a href="#">Permis B</a>
+                        <a href="#">Conduite Supervisée</a>
+                        <a href="#">Perfectionnement</a>
+                        <a href="#">Conduite Écologique</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-title">Contact</h5>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-map-marker-alt me-2"></i> 123 Rue de la Conduite, Paris</a>
+                        <a href="#"><i class="fas fa-phone me-2"></i> +33 1 23 45 67 89</a>
+                        <a href="#"><i class="fas fa-envelope me-2"></i> contact@drivora.fr</a>
+                        <a href="#"><i class="fas fa-clock me-2"></i> Lun-Ven: 8h-20h, Sam: 9h-18h</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p class="mb-0">Tous droits réservés. | <a href="#" class="">Politique de
+                        confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Animation au défilement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation de la navigation au défilement
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Animation fade-in au défilement
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementBottom = element.getBoundingClientRect().bottom;
+                    const isVisible = (elementTop < window.innerHeight - 50) && (elementBottom > 0);
+                    
+                    if (isVisible) {
+                        element.classList.add('appear');
+                    }
+                });
+            };
+            
+            // Initial check
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+        });
+    </script>
+</body>
+</html>
